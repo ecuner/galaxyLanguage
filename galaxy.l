@@ -1,22 +1,22 @@
 %{
-char karsilik[][50] = {"INTEGER","FLOAT","INCRDESC",
+char karsilik[][50] = {"?","\n","INCRDESC",
 "BOOLEAN", "CONST", "DOT", "ML_COMM_START", "ML_COMM_END", "OR", "AND", "EQUALITY", "COMPARISON",
 "MULDIVMOD", "ADDSUB",  "NOT", "LEFTSQRPRT", "RIGHTSQRPRT", "THEN", "ELSE", "ELSEIF", "IF",
 "CONTINUE", "BREAK", "RETURN", "ASSIGNOPR", "WHILE", "FOR", "LEFTPRT", "RIGHTPRT", "START", "END",
-"SL_COMM", "WORD"
+"SL_COMM", "INTEGER","FLOAT", "WORD"
 };
 
 // {letter}({letter}|{digit})* { return 6; }
 // word [A-Za-z_]+
 %}
+
 digit [0-9]
 letter [A-Za-z_]
 word [A-Za-z0-9_]+
 
 %%
 " "|"\t" ;
-{digit}+  { return 0; }
-{digit}+\.{digit}+  { return 1; }
+"\n" { return 1; }
 (\+\+|\-\-) { return 2; }
 (TRUE|FALSE|true|false) { return 3; }
 (CONST|const) { return 4; }
@@ -48,20 +48,25 @@ word [A-Za-z0-9_]+
 (start) { return 29; }
 (end) { return 30; }
 (#) { return 31; }
-{word} { return 32; }
+{digit}+  { return 32; }
+{digit}+\.{digit}+  { return 33; }
+{word} { return 34; }
 
 
 . printf("unexpected character");
 
 %%
 
-int main(void)
+int main()
 {
 	int result;
 	int running = 1;
 	while(running)
-			{
+	{
 			result = yylex();
+            if(result == 0)
+                return 0;
+
 			printf("%s ",karsilik[result]);
 /*			switch(result)
 			{
@@ -74,6 +79,7 @@ int main(void)
 			case CONST: printf("CONST "); break;
 			}
 */
+
 	}
 	return 0;
 }

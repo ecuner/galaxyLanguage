@@ -1,0 +1,18 @@
+
+
+if(ay.ismi == Mart) start
+    mevsim++.
+end
+
+while(galaxyDili == true) start
+    print(it works).
+end
+
+if(not((10 / 2 + 5) == 10)) start
+    print(dil bozuk).
+else
+    print(dil calisiyor).
+end
+
+
+
