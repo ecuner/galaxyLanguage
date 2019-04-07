@@ -1,8 +1,10 @@
-Galaxy Programming Language
+# __Galaxy Programming Language__
+
+<img src="https://cdn.freebiesupply.com/logos/large/2x/galaxy-3-logo-png-transparent.png" width="250" height="250">
 
 GX is a syntax friendly and easy to understand language programming language without any ambiguity. One of the difference from other language is that GX using . (dot) for line breaking. GX License v1.0.
 
-Syntax and Semantics of Galaxy
+## __Syntax and Semantics of Galaxy__
 
 - The default file extension for Galaxy files is ".gx".
 - GX statements end with a dot (.).
@@ -25,7 +27,7 @@ Syntax and Semantics of Galaxy
 - Gx does not have a main function to start, it just starts to read from top to bottom, so it isn’t interpreted language.
 - Single line comments starts with #, multi line comments starts with #_ and ends with _#.
 
-Instructions to Operate
+## __Instructions to Operate__
 
 Makefile handles everything for you. Here are some of useful commands:
 
@@ -36,30 +38,30 @@ Makefile handles everything for you. Here are some of useful commands:
 - make clean
   Cleans all compiled binaries, headers etc.
 
-BNF Form of Galaxy
+## __BNF Form of Galaxy__
 
-<program> ::= <stmt_list>
+\<program> ::= <stmt_list>
 
-<consts> ::= const <assignment> | <line_breaker>
+\<consts> ::= const <assignment> | <line_breaker>
 
-<stmt_list> ::= empty
+\<stmt_list> ::= empty
 | <consts> <stmt_list>
 | <function> <stmt_list>
 | <statement> <stmt_list>
 | <comment> <stmt_list>
 
-<function> ::= <char> ( <parameters> ) start {<statement>}\* end
+\<function> ::= <char> ( <parameters> ) start {<statement>}\* end
 
-<line-breaker> ::= <..>
+\<line-breaker> ::= <..>
 
-<parameters> ::= <expr>
+\<parameters> ::= <expr>
 | <parameters> , <expr>
 | empty
 
-<comment> ::= <SL_COMM>
+\<comment> ::= <SL_COMM>
 | <ML_COMM_START>
 
-<expr> → <expr> or <and-expression>
+\<expr> → <expr> or <and-expression>
 | <and-expression>
 | <equality-expression>
 | <relational-expression>
@@ -68,57 +70,57 @@ BNF Form of Galaxy
 | <expression-with-head>
 | <expression-with-tail>
 
-<and-expression> ::= <equality-expression>
+\<and-expression> ::= <equality-expression>
 | <and-expression> and <equality-expression>
 
-<equality-expression> ::= <relational-expression>
+\<equality-expression> ::= <relational-expression>
 | <equality-expression> == <relational-expression>
 | <equality-expression> != <relational-expression>
 
-<relational-expression> ::= <additive-expression>
+\<relational-expression> ::= <additive-expression>
 | <relational-expression> < <additive-expression>
 | <relational-expression> > <additive-expression>
 | <relational-expression> <= <additive-expression>
 | <relational-expression> >= <additive-expression>
 
-<additive-expression> ::= <multiplicative-expression>
+\<additive-expression> ::= <multiplicative-expression>
 | <additive-expression> + <multiplicative-expression>
 | <additive-expression> - <multiplicative-expression>
 
-<multiplicative-expression> ::= <expression-with-head>
+\<multiplicative-expression> ::= <expression-with-head>
 | <multiplicative-expression> \* <expression-with-head>
 | <multiplicative-expression> / <expression-with-head>
 | <multiplicative-expression> % <expression-with-head>
 
-<expression-with-head> ::= <expression-with-tail>
+\<expression-with-head> ::= <expression-with-tail>
 | ++ <vars-and-consts>
 | -- <vars-and-consts>
 
-<expression-with-tail> ::= <expression_with_parenthesis>
+\<expression-with-tail> ::= <expression_with_parenthesis>
 | <expression-with-tail> ++
 | <expression-with-tail> --
 
-<expression-with-parenthesis> ::= not(<expr>)
+\<expression-with-parenthesis> ::= not(<expr>)
 | (<expr>)
 | <vars-and-consts>
 
-<vars-and-consts> ::= <char>
+\<vars-and-consts> ::= <char>
 | <integer>
 | ( <assignment> )
 
-<conditional-expression> ::= (<expr> then <expr> else <expr>)
+\<conditional-expression> ::= (<expr> then <expr> else <expr>)
 
-<expr_or_conditional_expression> ::= <expr>
+\<expr_or_conditional_expression> ::= <expr>
 | <onditional-expression>
 
-<assignment> ::= <vars-and-consts> = <expr_or_conditional_expression>
+\<assignment> ::= <vars-and-consts> = <expr_or_conditional_expression>
 | <vars-and-consts> \*= <conditional-expression>
 | <vars-and-consts> /= <conditional-expression>
 | <vars-and-consts> %= <conditional-expression>
 | <vars-and-consts> += <conditional-expression>
 | <vars-and-consts> -= <conditional-expression>
 
-<statement> ::= <line-breaker>
+\<statement> ::= <line-breaker>
 | <assignment> <line-breaker>
 | <condition>
 | CONTINUE <line_breaker>
@@ -128,22 +130,22 @@ BNF Form of Galaxy
 | PRINT (<vars_and_consts>) <line_breaker>
 | SCAN (CHAR) <line_breaker>
 
-<function_expr> :: = (<expr>) then
+\<function_expr> :: = (<expr>) then
 
-<function_else> :: = else
+\<function_else> :: = else
 
-<expr_and_statement_zero_or_more>:
+\<expr_and_statement_zero_or_more>:
 | ELSEIF expr_and_statement <expr_and_statement_zero_or_more>
 
-<condition> : IF <function_expr> <statements> <expr_and_statement_zero_or_more> END
+\<condition> : IF <function_expr> <statements> <expr_and_statement_zero_or_more> END
 | IF <function_expr> <statements> < expr_and_statement_zero_or_more> <function_else> <statements> END
 
-<for_assignment> : <expression_with_head> | <assignment>
+\<for_assignment> : <expression_with_head> | <assignment>
 
-<lup> ::= while ( <expr> ) start <statement> end
+\<lup> ::= while ( <expr> ) start <statement> end
 | for ( <assignment><line-breaker> <expr> <line-breaker> <for_assignment> ) start <statements> end
 
-Contributors
-Eray Orçunus
-Gökmen Özçelik
-Caner Türkmen
+### Contributors
+* Eray Orçunus
+* Gökmen Özçelik
+* Caner Türkmen
