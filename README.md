@@ -44,106 +44,106 @@ Makefile handles everything for you. Here are some of useful commands:
 
 \<consts> ::= const <assignment> | <line_breaker>
 
-\<stmt_list> ::= empty
-| <consts> <stmt_list>
-| <function> <stmt_list>
-| <statement> <stmt_list>
+\<stmt_list> ::= empty <br/>
+| <consts> <stmt_list> <br/>
+| <function> <stmt_list> <br/>
+| <statement> <stmt_list> <br/>
 | <comment> <stmt_list>
 
-\<function> ::= <char> ( <parameters> ) start {<statement>}\* end
+\<function> ::= \<char> ( \<parameters> ) start {\<statement>}\* end
 
 \<line-breaker> ::= <..>
 
-\<parameters> ::= <expr>
-| <parameters> , <expr>
+\<parameters> ::= \<expr> <br/>
+| \<parameters> , \<expr> <br/>
 | empty
 
 \<comment> ::= <SL_COMM>
 | <ML_COMM_START>
 
-\<expr> → <expr> or <and-expression>
-| <and-expression>
-| <equality-expression>
-| <relational-expression>
-| <additive-expression>
-| <multiplicative-expression>
-| <expression-with-head>
-| <expression-with-tail>
+\<expr> → \<expr> or \<and-expression> <br/>
+| \<and-expression> <br/>
+| \<equality-expression> <br/>
+| \<relational-expression> <br/>
+| \<additive-expression> <br/>
+| \<multiplicative-expression> <br/>
+| \<expression-with-head> <br/>
+| \<expression-with-tail> <br/>
 
-\<and-expression> ::= <equality-expression>
-| <and-expression> and <equality-expression>
+\<and-expression> ::= \<equality-expression> <br/>
+| \<and-expression> and \<equality-expression>
 
-\<equality-expression> ::= <relational-expression>
-| <equality-expression> == <relational-expression>
-| <equality-expression> != <relational-expression>
+\<equality-expression> ::= \<relational-expression> <br/>
+| \<equality-expression> == \<relational-expression> <br/>
+| \<equality-expression> != \<relational-expression>
 
-\<relational-expression> ::= <additive-expression>
-| <relational-expression> < <additive-expression>
-| <relational-expression> > <additive-expression>
-| <relational-expression> <= <additive-expression>
-| <relational-expression> >= <additive-expression>
+\<relational-expression> ::= \<additive-expression> <br/> 
+| \relational-expression> < \<additive-expression> <br/>
+| \<relational-expression> > \<additive-expression> <br/>
+| \<relational-expression> <= \<additive-expression> <br/>
+| \<relational-expression> >= \<additive-expression>
 
-\<additive-expression> ::= <multiplicative-expression>
-| <additive-expression> + <multiplicative-expression>
-| <additive-expression> - <multiplicative-expression>
+\<additive-expression> ::= \<multiplicative-expression> <br/>
+| \<additive-expression> + \<multiplicative-expression> <br/>
+| \<additive-expression> - \<multiplicative-expression>
 
-\<multiplicative-expression> ::= <expression-with-head>
-| <multiplicative-expression> \* <expression-with-head>
-| <multiplicative-expression> / <expression-with-head>
-| <multiplicative-expression> % <expression-with-head>
+\<multiplicative-expression> ::= \<expression-with-head> <br/>
+| \<multiplicative-expression> \* \<expression-with-head> <br/>
+| \<multiplicative-expression> / \<expression-with-head> <br/>
+| \<multiplicative-expression> % \<expression-with-head>
 
-\<expression-with-head> ::= <expression-with-tail>
-| ++ <vars-and-consts>
-| -- <vars-and-consts>
+\<expression-with-head> ::= \<expression-with-tail> <br/>
+| ++ \<vars-and-consts> <br/>
+| -- \<vars-and-consts>
 
-\<expression-with-tail> ::= <expression_with_parenthesis>
-| <expression-with-tail> ++
-| <expression-with-tail> --
+\<expression-with-tail> ::= \<expression_with_parenthesis> <br/>
+| \<expression-with-tail> ++ <br/>
+| \<expression-with-tail> --
 
-\<expression-with-parenthesis> ::= not(<expr>)
-| (<expr>)
-| <vars-and-consts>
+\<expression-with-parenthesis> ::= not(\<expr>) <br/>
+| (\<expr>) <br/>
+| \<vars-and-consts>
 
-\<vars-and-consts> ::= <char>
-| <integer>
-| ( <assignment> )
+\<vars-and-consts> ::= \<char> <br/>
+| \<integer> <br/>
+| ( \<assignment> )
 
-\<conditional-expression> ::= (<expr> then <expr> else <expr>)
+\<conditional-expression> ::= (\<expr> then \<expr> else \<expr>) <br/>
 
-\<expr_or_conditional_expression> ::= <expr>
-| <onditional-expression>
+\<expr_or_conditional_expression> ::= \<expr> <br/>
+| \<conditional-expression>
 
-\<assignment> ::= <vars-and-consts> = <expr_or_conditional_expression>
-| <vars-and-consts> \*= <conditional-expression>
-| <vars-and-consts> /= <conditional-expression>
-| <vars-and-consts> %= <conditional-expression>
-| <vars-and-consts> += <conditional-expression>
-| <vars-and-consts> -= <conditional-expression>
+\<assignment> ::= \<vars-and-consts> = \<expr_or_conditional_expression> <br/>
+| \<vars-and-consts> \*= \<conditional-expression> <br/>
+| \<vars-and-consts> /= \<conditional-expression> <br/>
+| \<vars-and-consts> %= \<conditional-expression> <br/>
+| \<vars-and-consts> += \<conditional-expression> <br/>
+| \<vars-and-consts> -= \<conditional-expression>
 
-\<statement> ::= <line-breaker>
-| <assignment> <line-breaker>
-| <condition>
-| CONTINUE <line_breaker>
-| BREAK <line_breaker>
-| <lup>
-| <expression_with_head> <line_breaker>
-| PRINT (<vars_and_consts>) <line_breaker>
-| SCAN (CHAR) <line_breaker>
+\<statement> ::= \<line-breaker> <br/>
+| \<assignment> \<line-breaker> <br/>
+| \<condition> <br/>
+| CONTINUE \<line_breaker> <br/>
+| BREAK \<line_breaker> <br/>
+| \<lup> <br/>
+| \<expression_with_head> \<line_breaker> <br/>
+| PRINT (\<vars_and_consts>) \<line_breaker> <br/>
+| SCAN (CHAR) \<line_breaker>
 
-\<function_expr> :: = (<expr>) then
+\<function_expr> :: = (\<expr>) then
 
 \<function_else> :: = else
 
-\<expr_and_statement_zero_or_more>:
-| ELSEIF expr_and_statement <expr_and_statement_zero_or_more>
+\<expr_and_statement_zero_or_more>: <br/>
+| ELSEIF \<expr_and_statement> \<expr_and_statement_zero_or_more>
 
-\<condition> : IF <function_expr> <statements> <expr_and_statement_zero_or_more> END
-| IF <function_expr> <statements> < expr_and_statement_zero_or_more> <function_else> <statements> END
+\<condition> : IF \<function_expr> \<statements> \<expr_and_statement_zero_or_more> END <br/>
+| IF \<function_expr> \<statements> \<expr_and_statement_zero_or_more> \<function_else> \<statements> END
 
-\<for_assignment> : <expression_with_head> | <assignment>
+\<for_assignment> : \<expression_with_head> | \<assignment>
 
-\<lup> ::= while ( <expr> ) start <statement> end
-| for ( <assignment><line-breaker> <expr> <line-breaker> <for_assignment> ) start <statements> end
+\<lup> ::= while ( \<expr> ) start \<statement> end <br/>
+| for ( \<assignment> \<line-breaker> \<expr> \<line-breaker> \<for_assignment> ) start \<statements> end
 
 ### Contributors
 * Eray Orçunus
